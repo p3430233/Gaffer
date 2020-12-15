@@ -17,10 +17,28 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs script to to execute bash commands in kind-deployment.md 
-      - name: Update properties files
-        run: | 
-            sed '16 a gaffer.store.properties.class=uk.gov.gchq.gaffer.accumulostore.AccumuloProperties' store.properties
-            sed -i 's/localhost/localhost:58630/g' store.properties
+      - name: Update properties files #1
+        run: sed '16 a gaffer.store.properties.class=uk.gov.gchq.gaffer.accumulostore.AccumuloProperties' store.properties
+      - name: Update properties files #2 
+        run: sed -i 's/localhost/localhost:58630/g' store.properties
+      - name: Update properties files #3 
+        run: sed -i 's/user/root/g' store.properties
+      - name: Update properties files #4 
+        run: sed -i 's/standardInstance/instance/g' store.properties
+      - name: Update properties files #5
+        run: sed -i 's/localhost/localhost:58630/g' store2.properties
+      - name: Update properties files #6 
+        run: sed -i 's/user/root/g' store2.properties
+      - name: Update properties files #7 
+        run: sed -i 's/standardInstance/instance/g' store2.properties
+      - name: Update properties files #8 
+        run: sed -i 's/localhost/localhost:58630/g' accumuloStoreClassicKeys.properties
+      - name: Update properties files #9 
+        run: sed -i 's/user/root/g' accumuloStoreClassicKeys.properties
+      - name: Update properties files #10 
+        run: sed -i 's/standardInstance/instance/g' accumuloStoreClassicKeys.properties
+      - name: Update properties files #11 
+        run: sed '16 a gaffer.store.accumulo.keypackage.class=uk.gov.gchq.gaffer.accumulostore.key.core.impl.classic.ClassicKeyPackage' accumuloStoreClassicKeys.properties 
       - name: Run the integration tests
         run: mvn verify
       - name: Send success message to ms teams
