@@ -19,16 +19,7 @@ jobs:
       # Runs script to to execute bash commands in kind-deployment.md 
       - name: Update properties files
         run: sed '16 a gaffer.store.properties.class=uk.gov.gchq.gaffer.accumulostore.AccumuloProperties' store.properties
-             sed -i 's/localhost/localhost:58630/g' store.properties
-             sed -i 's/user/root/g' store.properties
-             sed -i 's/standardInstance/instance/g' store.properties
-             sed -i 's/localhost/localhost:58630/g' store2.properties
-             sed -i 's/user/root/g' store2.properties
-             sed -i 's/standardInstance/instance/g' store2.properties
-             sed -i 's/localhost/localhost:58630/g' accumuloStoreClassicKeys.properties
-             sed -i 's/user/root/g' accumuloStoreClassicKeys.properties
-             sed -i 's/standardInstance/instance/g' accumuloStoreClassicKeys.properties
-             sed '16 a gaffer.store.accumulo.keypackage.class=uk.gov.gchq.gaffer.accumulostore.key.core.impl.classic.ClassicKeyPackage' accumuloStoreClassicKeys.properties      
+            
       - name: Run the integration tests
         run: mvn verify
       - name: Send success message to ms teams
