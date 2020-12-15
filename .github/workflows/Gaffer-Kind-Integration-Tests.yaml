@@ -18,8 +18,9 @@ jobs:
 
       # Runs script to to execute bash commands in kind-deployment.md 
       - name: Update properties files
-        run: sed '16 a gaffer.store.properties.class=uk.gov.gchq.gaffer.accumulostore.AccumuloProperties' store.properties
-            
+        run: | 
+            sed '16 a gaffer.store.properties.class=uk.gov.gchq.gaffer.accumulostore.AccumuloProperties' store.properties
+            sed -i 's/localhost/localhost:58630/g' store.properties
       - name: Run the integration tests
         run: mvn verify
       - name: Send success message to ms teams
