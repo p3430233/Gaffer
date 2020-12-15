@@ -40,7 +40,9 @@ jobs:
       - name: Update properties files #11 
         run: sed '16 a gaffer.store.accumulo.keypackage.class=uk.gov.gchq.gaffer.accumulostore.key.core.impl.classic.ClassicKeyPackage' accumuloStoreClassicKeys.properties 
       - name: Run the integration tests
-        run: cd ../../.. mvn verify
+        run: |
+          cd ../../.. 
+          mvn verify
       - name: Send success message to ms teams
         if: ${{ success() }}
         uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
