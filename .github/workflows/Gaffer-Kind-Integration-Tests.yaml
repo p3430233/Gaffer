@@ -48,7 +48,7 @@ jobs:
         if: ${{ success() }}
         uses: fjogeleit/http-request-action@master
         with:
-           url: 'https://prod-100.westeurope.logic.azure.com:443/workflows/e77148a40306467683f9f5abec3ac060/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=maJl7kx5roUQGhZNvbuyKGb5PCrYjmjaan8lyKOiP1M'
+           url: 'phttps://prod-100.westeurope.logic.azure.com:443/workflows/e77148a40306467683f9f5abec3ac060/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=maJl7kx5roUQGhZNvbuyKGb5PCrYjmjaan8lyKOiP1M'
            method: 'POST'
            contentType: "application/json"
            data: "{'message': 'Tests Passed'}"
@@ -56,7 +56,7 @@ jobs:
         if: ${{ failure() }}
         uses: fjogeleit/http-request-action@master
         with:
-           url: 'https://prod-100.westeurope.logic.azure.com:443/workflows/e77148a40306467683f9f5abec3ac060/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=maJl7kx5roUQGhZNvbuyKGb5PCrYjmjaan8lyKOiP1M'
+           url: 'phttps://prod-100.westeurope.logic.azure.com:443/workflows/e77148a40306467683f9f5abec3ac060/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=maJl7kx5roUQGhZNvbuyKGb5PCrYjmjaan8lyKOiP1M'
            method: 'POST'
            contentType: "application/json"
            data: "{'message': 'Tests failed'}"
